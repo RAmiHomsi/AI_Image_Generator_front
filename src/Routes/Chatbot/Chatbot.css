@@ -1,0 +1,33 @@
+.container{
+    height: 100vh;
+    width: 100%;
+    object-fit: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,0.7);
+}
+#imgg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.container .chat-box{
+    position:fixed;
+    letter-spacing: 1px;
+    width: 40%;
+    height: 500px;
+    top: 10vh;
+}
+
+
+@media screen and (max-width:640px) {
+    .main {
+        grid-template-columns: 1fr;
+    }
+
+}
