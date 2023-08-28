@@ -8,9 +8,11 @@ const NavBar= ()=> {
   
   return (
     <div className="header">
-      <h1>RAMO Image Generator</h1>
+      {/* <h1>RAMO Image Generator</h1> */}
       <ul className="nav-menu">
         <li> <Link to="/">Home</Link></li>
+        <li> <Link to="/chatsystem">Ai-Bot</Link></li>
+        <li> <Link to="/generator">Image-generator</Link></li>
         <li> <Link to="/contact">Contact</Link></li>
         <li> <Link to="/about">About</Link></li>
       </ul>

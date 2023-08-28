@@ -41,16 +41,16 @@ function Chatbot() {
 
 return (
   <div className='w-screen max-h-screen '>
-    <div className='Chat w-8/12 h-[93vh] max-h-[93vh] m-auto flex flex-col justify-start overflow-scroll overflow-x-hidden bg-gray-500/50'>
+    <div className='Chat w-12/12 h-[93vh] max-h-[93vh] m-auto flex flex-col justify-start overflow-scroll overflow-x-hidden bg-gray-500/50 pt-20' >
       {messages.map((chat, index) => (
-        <div key={index} className='bg-gray-600 pl-2 text-left text-white text-2xl'>
+        <div key={index} className={chat.role === "user" ?' bg-blue-300 p-2 pb-2 text-left text-blue-800 text-2xl' : 'pl-2 text-left p-2 text-white text-2xl bg-green-300 text-green-800 '}>
           {chat.role + " : " + chat.content}
-          <div className='w-12/12 h-[1px] bg-white'></div>
+          {/* <div className='w-12/12 h-[1px] bg-white'></div> */}
         </div>
       ))}
     </div>
 
-    <div className="w-8/12 flex flex-row justify-center m-auto">
+    <div className="w-12/12 flex flex-row justify-center m-auto">
       <input
         className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
         type="text"
