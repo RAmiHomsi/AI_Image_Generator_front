@@ -26,7 +26,7 @@ main{
   background-color: rgba(0, 0, 0, .8);
 }
 
-p{
+/* p{
   background-color: palegreen;
   max-width: 70%;
   padding: 15px;
@@ -34,13 +34,13 @@ p{
   border-radius: 50px;
 }
 
-p span{
+p .spann{
   margin: 5px;
 }
 
-p span:first-child{
+p .spann:first-child{
   margin-right: 0;
-}
+} */
 
 .user_msg{
   text-align: right;
@@ -67,7 +67,7 @@ p span:first-child{
   background: rgb(41, 41, 41);
 }
 
-input{
+.chatbotInput{
   width: 100%;
     background: transparent;
     border: none;

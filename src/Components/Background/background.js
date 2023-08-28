@@ -12,8 +12,8 @@ const background= ()=> {
         <img src={bg} id="image"/>
 
         <div className="content">
-            <h1>RAMO</h1>
-            <p>The one and only</p>
+            <h1 className="H1Background">RAMO</h1>
+            <p className="PHero">The one and only</p>
 
         <div>
             <Link to="/generator" className="btn">Get Started</Link>

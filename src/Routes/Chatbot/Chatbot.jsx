@@ -26,8 +26,9 @@ function Chatbot() {
 
       console.log(response)
 
-      const botResponse = response.data.data;
+      const botResponse = response.data;
       const updatedMessagesWithBot = [...updatedMessages, { role: 'bot', content: botResponse }];
+      console.log(botResponse)
 
       setMessages(updatedMessagesWithBot);
       setIsTyping(false);
@@ -38,16 +39,46 @@ function Chatbot() {
     }
   };
 
-  return (
-    <main>
+return (
+  <div className='w-screen max-h-screen '>
+    <div className='Chat w-8/12 h-[90vh] max-h-[90vh] m-auto flex flex-col justify-start overflow-scroll overflow-x-hidden bg-gray-500/50'>
+      {messages.map((chat, index) => (
+        <div key={index} className='bg-gray-600 pl-2 text-left text-white text-2xl'>
+          {chat.role + " : " + chat.content}
+          <div className='w-12/12 h-[1px] bg-white'></div>
+        </div>
+      ))}
+    </div>
+
+    <div className="w-8/12 flex flex-row justify-center m-auto">
+      <input
+        className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+        type="text"
+        placeholder="Type here"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+      />
+      <button
+        type="submit"
+        className="focus:outline-none text-white ml-2 mt-2 bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        onClick={handleSubmit}
+      >
+        Send
+      </button>
+    </div>
+  </div>
+);
+      }
+export default Chatbot;
+
+ {/* <div>
       <section>
         {messages.map((chat, index) => (
-          <p key={index} className={chat.role === 'user' ? 'user_msg' : ''}>
-            <span>
-              <b>{chat.role}</b>
+          <p key={index}  className={chat.role === 'user' ? 'w-8/12 flex flex-row justify-between m-auto' : 'w-8/12 flex flex-row justify-between m-auto'}>
+            <span className='spann'>
+              <b>{chat.role + " :"}</b>
             </span>
-            <span>:</span>
-            <span>{chat.content}</span>
+            <span className='spann'>{chat.content}</span>
           </p>
         ))}
       </section>
@@ -58,12 +89,8 @@ function Chatbot() {
         </p>
       </div>
 
-      <div className="container">
-        <input type="text" placeholder="Type here" value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
-        <button type="submit" className="send-btn" onClick={handleSubmit}>Send</button>
+      <div className=" w-8/12 flex flex-row justify-between m-auto">
+        <input className='block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' type="text" placeholder="Type here" value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
+        <button type="submit" className="focus:outline-none text-white ml-2 mt-2 bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={handleSubmit}>Send</button>
       </div>
-    </main>
-  );
-}
-
-export default Chatbot;
+    </div> */}
