@@ -1,60 +1,69 @@
 import { useState } from 'react'
 import './Chatbot.css'
-import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { MainContainer, ChatContainer, MessageList, Message, MessageInput, TypingIndicator } from '@chatscope/chat-ui-kit-react';
-import bg from '.././../Components/Background/bg.jpg';
+import axios from 'axios';
 
 
 function Chatbot() {
-    const [messages, setMessages] = useState([
-      {
-        message: "Aye silly user, I'm ChatGPT duh! What the fuck do you want!",
-        sentTime: "just now",
-        sender: "ChatGPT"
-      }
-    ]);
-    const [isTyping, setIsTyping] = useState(false);
-  
-    const handleSend = async (message) => { //msg from the input
-      const newMessage = {
-        message,
-        direction: 'outgoing',
-        sender: "user"
-      }; 
-  
-      const newMessages = [...messages, newMessage]; //spread operator to store old msgs and new
-      
-      //update msg state
-      setMessages(newMessages);
-  
-      //to indicate that bot is typing
-      setIsTyping(true);
+  const [isTyping, setIsTyping] = useState(false);
+  const [userInput, setUserInput] = useState('');
+  const [messages, setMessages] = useState([]);
 
-    };
-  
-    
-  
-    return (
-        <div className='container' >
-          <img src={bg} id='imgg'/>
-          <div className='chat-box'>
-          <MainContainer>
-            <ChatContainer>       
-              <MessageList 
-                scrollBehavior="smooth" 
-                typingIndicator={isTyping ? <TypingIndicator content="Chatbot is typing" /> : null}
-              >
-                {messages.map((message, index) => {
-                  return <Message key={index} model={message} />
-                })}
-              </MessageList>
-              <MessageInput placeholder="Type message here" onSend={handleSend} />        
-            </ChatContainer>
-          </MainContainer>
-          </div>
-      
+  const handleSubmit = async () => {
+    if (!userInput) return;
+
+    const updatedMessages = [...messages, { role: 'user', content: userInput }];
+
+    setMessages(updatedMessages);
+    setUserInput('');
+
+    setIsTyping(true);
+
+    try {
+      const response = await axios.post('http://localhost:3999/api/chat', {
+        content: userInput,
+        systemContent: 'You are a helpful programming assistant',
+      });
+
+      console.log(response)
+
+      const botResponse = response.data.data;
+      const updatedMessagesWithBot = [...updatedMessages, { role: 'bot', content: botResponse }];
+
+      setMessages(updatedMessagesWithBot);
+      setIsTyping(false);
+
+    } catch (error) {
+      console.error('Error sending request:', error);
+      setIsTyping(false);
+    }
+  };
+
+  return (
+    <main>
+      <section>
+        {messages.map((chat, index) => (
+          <p key={index} className={chat.role === 'user' ? 'user_msg' : ''}>
+            <span>
+              <b>{chat.role}</b>
+            </span>
+            <span>:</span>
+            <span>{chat.content}</span>
+          </p>
+        ))}
+      </section>
+
+      <div className={isTyping ? '' : 'hide'}>
+        <p>
+          <i>{isTyping ? 'Typing...' : ''}</i>
+        </p>
       </div>
-    )
-  }
-  
-  export default Chatbot
+
+      <div className="container">
+        <input type="text" placeholder="Type here" value={userInput} onChange={(e) => setUserInput(e.target.value)}/>
+        <button type="submit" className="send-btn" onClick={handleSubmit}>Send</button>
+      </div>
+    </main>
+  );
+}
+
+export default Chatbot;
