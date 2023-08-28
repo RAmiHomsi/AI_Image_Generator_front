@@ -41,7 +41,7 @@ function Chatbot() {
 
 return (
   <div className='w-screen max-h-screen '>
-    <div className='Chat w-8/12 h-[90vh] max-h-[90vh] m-auto flex flex-col justify-start overflow-scroll overflow-x-hidden bg-gray-500/50'>
+    <div className='Chat w-8/12 h-[93vh] max-h-[93vh] m-auto flex flex-col justify-start overflow-scroll overflow-x-hidden bg-gray-500/50'>
       {messages.map((chat, index) => (
         <div key={index} className='bg-gray-600 pl-2 text-left text-white text-2xl'>
           {chat.role + " : " + chat.content}

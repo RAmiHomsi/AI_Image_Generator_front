@@ -8,7 +8,7 @@ const NavBar= ()=> {
   
   return (
     <div className="header">
-      <Link to="/"><h1>RAMO Image Generator</h1></Link>
+      <h1>RAMO Image Generator</h1>
       <ul className="nav-menu">
         <li> <Link to="/">Home</Link></li>
         <li> <Link to="/contact">Contact</Link></li>
