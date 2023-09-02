@@ -17,9 +17,8 @@ const ImageGenerator = () => {
       }
     );
     //console.log(response);
-
-    setImage(response.data[0]);
     setIsLoading(false);
+    setImage(response.data[0]);
   };
 
   return (
