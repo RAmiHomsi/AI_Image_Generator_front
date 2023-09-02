@@ -5,7 +5,7 @@ import Chatbot from "./Routes/Chatbot/Chatbot";
 import NavBar from "./Components/NavBar/NavBar";
 import { BotSystem } from "./Routes/Chatbot System/BotSystem";
 import About from "./Routes/About/About";
-import VideoGenerator from "./Routes/Video Generator/VideoGenerator";
+import VideoGenerator from "./Routes/Video-Generator/VideoGenerator";
 
 function App() {
   return (
