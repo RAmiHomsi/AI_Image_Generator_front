@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;400;500;600;700;800&display=swap");
 @tailwind base;
 * {
   scrollbar-width: thin;
@@ -23,29 +23,34 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Outfit", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #000;
+  scroll-behavior: smooth;
+  color-scheme: light dark;
+  background-image: url("https://cdn.mos.cms.futurecdn.net/u5bN26Y7eYqrGYHDrBKqDk.jpg");
 }
 
-h1,h4,p,a{
+h1,
+h4,
+p,
+a,
+label {
   color: #fff;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-a{
+a {
   text-decoration: none;
 }

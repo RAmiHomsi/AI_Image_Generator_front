@@ -1,21 +1,4 @@
-html, body{
-  scroll-behavior: smooth;
-  color-scheme: light dark;
-  background:linear-gradient(0deg, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0)), url("../../../src/Components/Background/bg.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  background-color: #242424;
-}
-
-main{
+main {
   width: 500px;
   height: 500px;
   overflow-y: scroll;
@@ -23,7 +6,7 @@ main{
   margin: auto;
   display: flex;
   flex-direction: column;
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* p{
@@ -42,7 +25,7 @@ p .spann:first-child{
   margin-right: 0;
 } */
 
-.user_msg{
+.user_msg {
   text-align: right;
   margin-left: 30%;
   display: flex;
@@ -54,10 +37,9 @@ p .spann:first-child{
   display: none;
 }
 
-
-.container{
+.container {
   text-align: center;
-  margin-top: auto;  
+  margin-top: auto;
   display: flex;
   width: 100%;
   height: 60px;
@@ -67,31 +49,36 @@ p .spann:first-child{
   background: rgb(41, 41, 41);
 }
 
-.chatbotInput{
+.chatbotInput {
   width: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    color: white;
-    padding-left: 35px;
-    margin-right: 35px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: white;
+  padding-left: 35px;
+  margin-right: 35px;
 }
 .send-btn:hover {
-    box-shadow: 0 0 10px #eee;
-  }
-.send-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 6px;
-    width: 250px;
-    height: 50px;
-    border: none;
-    outline: none;
-    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
-    font-size: 20px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
+  box-shadow: 0 0 10px #eee;
+}
+.send-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 6px;
+  width: 250px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background-image: linear-gradient(
+    to right,
+    #fbc2eb 0%,
+    #a6c1ee 51%,
+    #fbc2eb 100%
+  );
+  font-size: 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
 }

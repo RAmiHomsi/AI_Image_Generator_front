@@ -1,17 +1,12 @@
-import { useState } from "react";
 import React from "react";
-import NavBar from "../Components/NavBar/NavBar";
 import Background from "../Components/Background/background";
-import Footer from "../Components/Footer/Footer";
-import Chatbot from "./Chatbot/Chatbot";
 
-const Home= ()=> {
-  
+const Home = () => {
   return (
     <div>
-        <Background/>
+      <Background />
     </div>
   );
-}
+};
 
 export default Home;
