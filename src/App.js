@@ -6,6 +6,8 @@ import NavBar from "./Components/NavBar/NavBar";
 import { BotSystem } from "./Routes/Chatbot System/BotSystem";
 import About from "./Routes/About/About";
 import VideoGenerator from "./Routes/Video-Generator/VideoGenerator";
+import Login from "./Routes/Login/Login";
+import Register from "./Routes/Register/Register";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/chatsystem" element={<BotSystem />} />
         <Route path="/videogenerator" element={<VideoGenerator />} />
         <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );

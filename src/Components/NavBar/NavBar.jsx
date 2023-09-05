@@ -31,6 +31,9 @@ const NavBar = () => {
           <Link to="/about">About</Link>
         </li>
       </ul>
+      <Link className="text-xl font-medium px-2" to="/login">
+        Login
+      </Link>
     </div>
   );
 };
