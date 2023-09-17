@@ -8,21 +8,24 @@ import About from "./Routes/About/About";
 import VideoGenerator from "./Routes/Video-Generator/VideoGenerator";
 import Login from "./Routes/Login/Login";
 import Register from "./Routes/Register/Register";
+import { UserContextProvider } from "./UserContext";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/imagegenerator" element={<ImageGenerator />} />
-        <Route path="/chatbot" element={<Chatbot />} />
-        <Route path="/chatsystem" element={<BotSystem />} />
-        <Route path="/videogenerator" element={<VideoGenerator />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <UserContextProvider>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/imagegenerator" element={<ImageGenerator />} />
+          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/chatsystem" element={<BotSystem />} />
+          <Route path="/videogenerator" element={<VideoGenerator />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </UserContextProvider>
     </>
   );
 }

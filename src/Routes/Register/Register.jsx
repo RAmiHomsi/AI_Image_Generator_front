@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,12 +18,18 @@ const Register = () => {
     axios
       .post("http://localhost:3999/user/register", newUser)
       .then((res) => {
-        console.log(res);
+        setRedirect(true);
+        res.json(res);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  if (redirect) {
+    return <Navigate to={"/login"} />;
+  }
+
   return (
     <section>
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
